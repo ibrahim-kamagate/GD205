@@ -1,16 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//
 public class class2 : MonoBehaviour
 {
     public GameObject player;
-    public GameObject cube1;
+    public Transform[] hazzard;
+    public int i;
 
+    Vector3 initPos;
     // Start is called before the first frame update
     void Start()
     {
-        
+        initPos = player.transform.position;
+
         
     }
     // Update is called once per frameXDSA
@@ -56,11 +59,15 @@ public class class2 : MonoBehaviour
             player.transform.position += new Vector3(0, -1, 0);
 
         }
-        // negitive affect 
-        if (player == cube1) {
-            player.transform.position += new Vector3(-3, 1, 6);
-        }
 
+        //loop to check 
+        for (int i = 0; i < hazzard.Length; i++) {
+            // negitive affect 
+            if (hazzard[i].position == player.transform.position) {
+                player.transform.position = initPos;
+            }
+        }
 
     }
 }
+
