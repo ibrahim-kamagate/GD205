@@ -8,14 +8,24 @@ public class class2 : MonoBehaviour
     public Transform[] hazzard;
     public int i;
 
+    public AudioClip impact;
+    AudioSource audioSource;
+
     Vector3 initPos;
     // Start is called before the first frame update
     void Start()
     {
         initPos = player.transform.position;
 
+        audioSource = GetComponent<AudioSource>();
+
         
     }
+
+     void OnCollisionEnter(){
+        audioSource.PlayOneShot
+    }
+
     // Update is called once per frameXDSA
     void Update(){
         //to go left 
