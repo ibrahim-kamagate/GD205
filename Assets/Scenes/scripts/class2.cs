@@ -5,11 +5,19 @@ using UnityEngine;
 public class class2 : MonoBehaviour
 {
     public GameObject player;
+    public GameObject endObject;
     public Transform[] hazzard;
     public int i;
 
-    public AudioClip impact;
-    AudioSource audioSource;
+
+    AudioSource die;
+    public AudioClip HazzardClip;
+
+    AudioSource move;
+    public AudioClip MoveClip;
+
+    AudioSource end;
+    public AudioClip EndClip;
 
     Vector3 initPos;
     // Start is called before the first frame update
@@ -17,28 +25,34 @@ public class class2 : MonoBehaviour
     {
         initPos = player.transform.position;
 
-        audioSource = GetComponent<AudioSource>();
+        die = GetComponent<AudioSource>();
+        move = GetComponent<AudioSource>();
+        end = GetComponent<AudioSource>();
 
-        
-    }
 
-     void OnCollisionEnter(){
-        audioSource.PlayOneShot
     }
 
     // Update is called once per frameXDSA
-    void Update(){
+    void Update()
+    {
+
+
         //to go left 
-        if (Input.GetKeyDown(KeyCode.A)) {
+        if (Input.GetKeyDown(KeyCode.A))
+        {
 
             player.transform.position += new Vector3(0, 0, 1);
-
+                move.PlayOneShot(MoveClip);
+         
         }
         //to go right
         if (Input.GetKeyDown(KeyCode.D))
         {
-
+            
             player.transform.position += new Vector3(0, 0, -1);
+
+                move.PlayOneShot(MoveClip);
+            
 
         }
         //to go forward
@@ -46,6 +60,7 @@ public class class2 : MonoBehaviour
         {
 
             player.transform.position += new Vector3(1, 0, 0);
+            move.PlayOneShot(MoveClip);
 
         }
         //to go backward
@@ -53,6 +68,7 @@ public class class2 : MonoBehaviour
         {
 
             player.transform.position += new Vector3(-1, 0, 0);
+            move.PlayOneShot(MoveClip);
 
         }
         //to go up
@@ -60,6 +76,7 @@ public class class2 : MonoBehaviour
         {
 
             player.transform.position += new Vector3(0, 1, 0);
+            move.PlayOneShot(MoveClip);
 
         }
         //to go down
@@ -67,17 +84,29 @@ public class class2 : MonoBehaviour
         {
 
             player.transform.position += new Vector3(0, -1, 0);
+            move.PlayOneShot(MoveClip);
 
         }
 
         //loop to check 
-        for (int i = 0; i < hazzard.Length; i++) {
+        for (int i = 0; i < hazzard.Length; i++)
+        {
             // negitive affect 
-            if (hazzard[i].position == player.transform.position) {
+            if (hazzard[i].position == player.transform.position)
+            {
                 player.transform.position = initPos;
+                die.PlayOneShot(HazzardClip);
             }
         }
 
-    }
-}
 
+        if (player.transform.position == endObject.transform.position)
+        {
+            end.PlayOneShot(EndClip);
+        }
+    }
+
+
+
+}
+    
