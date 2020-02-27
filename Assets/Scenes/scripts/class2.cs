@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 //
 public class class2 : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class class2 : MonoBehaviour
     public Transform[] hazzard;
     public int i;
 
+    public Text playerMsg;
 
     AudioSource die;
     public AudioClip HazzardClip;
@@ -96,6 +98,9 @@ public class class2 : MonoBehaviour
             {
                 player.transform.position = initPos;
                 die.PlayOneShot(HazzardClip);
+
+                playerMsg.text = "you DIED";
+
             }
         }
 

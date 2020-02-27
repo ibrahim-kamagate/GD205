@@ -16,6 +16,12 @@ public class ui : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        playerMsg.text = "fuck" + " "+ Time.time;
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            playerMsg.text = "Resume";
+            playerMsg.text = "Restart";
+            playerMsg.text = "Quit";
+
+        }
     }
 }
