@@ -18,6 +18,7 @@ public class ui : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.M))
         {
+            
             playerMsg.text = "Resume";
             playerMsg.text = "Restart";
             playerMsg.text = "Quit";
