@@ -28,8 +28,9 @@ public class thrust : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter(Collision collision)
+    void OnCollisionEnter(Collision Mycollision)
     {
+        // if(Mycollision.)
         
     }
 }
